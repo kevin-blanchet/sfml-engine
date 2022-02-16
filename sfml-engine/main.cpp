@@ -19,7 +19,6 @@ int main()
     GM.initialize();
 
     TestObject* test = new TestObject();
-    SM.insertGameObject(test);
 
     GM.run();
     /*

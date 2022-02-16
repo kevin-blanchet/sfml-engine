@@ -10,6 +10,8 @@ GameObject::GameObject()
 	this->setType("GameObject");
 	this->setPosition(0, 0);
 	this->setDisplayLayer(MAX_DISPLAY_LAYER / 2);
+	this->setVelocity({ 0,0 });
+	this->setSpeed(0);
 
 	SM.insertGameObject(this);
 }
@@ -73,6 +75,26 @@ int GameObject::setDisplayLayer(int newLayer)
 	if (newLayer > MAX_DISPLAY_LAYER || newLayer < 0) return false;
 	this->displayLayer = newLayer;
 	return true;
+}
+
+void GameObject::setVelocity(Vector2 newVelocity) 
+{
+	this->velocity = newVelocity;
+}
+
+Vector2 GameObject::getVelocity()
+{
+	return this->velocity;
+}
+
+void GameObject::setSpeed(float newSpeed)
+{
+	this->speed = newSpeed;
+}
+
+float GameObject::getSpeed()
+{
+	return this->speed;
 }
 
 bool GameObject::eventHandler(const Event* event)

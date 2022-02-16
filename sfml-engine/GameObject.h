@@ -29,12 +29,21 @@ public:
 	int getDisplayLayer() const;
 	int setDisplayLayer(int newLayer);
 
+	void setVelocity(Vector2 newVelocity);
+	Vector2 getVelocity();
+
+	void setSpeed(float newSpeed);
+	float getSpeed();
+
 	virtual bool eventHandler(const Event* event);
 private:
 	int id;
 	std::string type;
 	Vector2 position;
 	int displayLayer;
+
+	Vector2 velocity;
+	float speed;
 };
 
 } // namespace ae
