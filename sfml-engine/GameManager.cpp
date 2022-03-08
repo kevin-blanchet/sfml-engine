@@ -24,13 +24,18 @@ bool GameManager::initialize()
 
 void GameManager::run()
 {
-    int i = 0;
     while (this->bRunning) {
+        this->delta = this->clock.resetDelta();
+        float updateTime = this->delta;
         IM.getInput();
         SM.update();
+        while (updateTime >= this->fixedDelta)
+        {
+            SM.fixedUpdate();
+            updateTime -= this->fixedDelta;
+        }
         SM.draw();
         DM.display();
-        //this->terminate();
     }
 }
 
@@ -51,10 +56,23 @@ bool GameManager::isRunning()
     return this->bRunning;
 }
 
+float GameManager::getDelta()
+{
+    return this->delta;
+}
+
+float GameManager::getFixedDelta()
+{
+    return this->fixedDelta;
+}
+
 GameManager::GameManager()
 {
     this->setType("GameManager");
     this->setRunning(true);
+
+    this->delta = this->clock.getDelta();
+    this->fixedDelta = 0.03f;
 }
 
 } // namespace ae

@@ -66,6 +66,15 @@ void SceneManager::update()
     this->deleteAllGameObjectsInList(deleteList);
 }
 
+void SceneManager::fixedUpdate()
+{
+    for (auto& i : this->aliveList)
+    {
+        i->fixedUpdate();
+    }
+    this->deleteAllGameObjectsInList(deleteList);
+}
+
 void SceneManager::draw()
 {
     for (int i = 0; i <= MAX_DISPLAY_LAYER; ++i) {

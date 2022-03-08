@@ -14,6 +14,7 @@ public:
 	virtual ~GameObject();
 
 	virtual void update();
+	virtual void fixedUpdate();
 	virtual void draw();
 
 	void setId(int newId);
