@@ -51,19 +51,19 @@ void InputManager::getInput()
 			break;
 		case sf::Event::EventType::MouseButtonPressed:
 			mEvent.setMouseAction(MouseEventAction::Pressed);
-			//mEvent.setButton(sfButtonToAeButton(event.mouseButton.button));
+			mEvent.setButton(sfButtonToAeButton(event.mouseButton.button));
 			mEvent.setMousePosition({ static_cast<float>(event.mouseButton.x), static_cast<float>(event.mouseButton.y) });
 			this->onEvent(&mEvent);
 			break;
 		case sf::Event::EventType::MouseButtonReleased:
 			mEvent.setMouseAction(MouseEventAction::Released);
-			//mEvent.setButton(sfButtonToAeButton(event.mouseButton.button));
+			mEvent.setButton(sfButtonToAeButton(event.mouseButton.button));
 			mEvent.setMousePosition({ static_cast<float>(event.mouseButton.x), static_cast<float>(event.mouseButton.y) });
 			this->onEvent(&mEvent);
 			break;
 		case sf::Event::EventType::MouseMoved:
 			mEvent.setMouseAction(MouseEventAction::Moved);
-			//mEvent.setButton(sfButtonToAeButton(event.mouseButton.button));
+			mEvent.setButton(sfButtonToAeButton(event.mouseButton.button));
 			mEvent.setMousePosition({ static_cast<float>(event.mouseButton.x), static_cast<float>(event.mouseButton.y) });
 			this->onEvent(&mEvent);
 			break;
