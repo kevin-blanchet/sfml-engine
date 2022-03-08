@@ -23,6 +23,10 @@ void GameObject::update()
 {
 }
 
+void GameObject::fixedUpdate()
+{
+}
+
 void GameObject::draw()
 {
 }
