@@ -3,6 +3,10 @@
 #include "Event.h"
 #include "Vector2.h"
 
+#pragma warning(push, 0)
+#include <SFML/Window/Mouse.hpp>
+#pragma warning(pop)
+
 namespace ae {
 
 enum class MouseEventAction {
@@ -13,11 +17,18 @@ enum class MouseEventAction {
 };
 
 namespace Mouse {
+
 enum class Button {
-    Unedefined = -1,
-    Left, Right, Middle,
-    ButtonCount,
+    Undefined = -1,
+    Left,
+    Right,
+    Middle,
+    XButton1,
+    XButton2,
+
+    ButtonCount
 };
+
 } // namespace Mouse
 
 class MouseEvent :
@@ -40,22 +51,6 @@ private:
     Vector2 position;
 };
 
-/*Mouse::Button sfButtonToAeButton(sf::Mouse::Button sfButton) {
-	switch (sfButton)
-	{
-	case sf::Mouse::Left:
-		return Mouse::Button::Left;
-		break;
-	case sf::Mouse::Right:
-		return Mouse::Button::Right;
-		break;
-	case sf::Mouse::Middle:
-		return Mouse::Button::Middle;
-		break;
-	default:
-		return Mouse::Button::Unedefined;
-		break;
-	}
-}*/
+Mouse::Button sfButtonToAeButton(sf::Mouse::Button sfButton);
 
 } // namespace ae
