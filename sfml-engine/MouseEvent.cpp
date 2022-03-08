@@ -5,7 +5,7 @@ namespace ae {
 MouseEvent::MouseEvent()
 {
 	this->setType("MouseEvent");
-	this->setButton(Mouse::Button::Unedefined);
+	this->setButton(Mouse::Button::Undefined);
 	this->setMouseAction(MouseEventAction::UndefinedMouseAction);
 	this->setMousePosition({ 0, 0 });
 }
@@ -38,6 +38,11 @@ void MouseEvent::setMousePosition(Vector2 newPosition)
 Vector2 MouseEvent::getMousePostion() const
 {
 	return this->position;
+}
+
+Mouse::Button sfButtonToAeButton(sf::Mouse::Button sfButton)
+{
+	return static_cast<Mouse::Button>(sfButton);
 }
 
 } // namespace ae
