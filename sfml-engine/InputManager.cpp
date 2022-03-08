@@ -45,7 +45,7 @@ void InputManager::getInput()
 			this->onEvent(&kEvent);
 			break;
 		case sf::Event::EventType::KeyReleased:
-			//kEvent.setKey(sfKeyToAeKey(event.key.code));
+			kEvent.setKey(sfKeyToAeKey(event.key.code));
 			kEvent.setKeyboardAction(KeyboardEventAction::KeyReleased);
 			this->onEvent(&kEvent);
 			break;
