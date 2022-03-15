@@ -33,8 +33,11 @@ public:
 	void setVelocity(Vector2 newVelocity);
 	Vector2 getVelocity();
 
+	void setDirection(Vector2 newDirection);
+	Vector2 getDirection() const;
+
 	void setSpeed(float newSpeed);
-	float getSpeed();
+	float getSpeed() const;
 
 	virtual bool eventHandler(const Event* event);
 private:
@@ -43,7 +46,7 @@ private:
 	Vector2 position;
 	int displayLayer;
 
-	Vector2 velocity;
+	Vector2 direction;
 	float speed;
 };
 
